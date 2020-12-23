@@ -3,9 +3,15 @@
 
 ## get-location.ps1
 
+
+
 Script to analyse IPs of current hacking attempts
 
 It gives you the location and coutries of source IPs of connections
+
+YOU NEED AN ACCOUNT FROM ipfy.org to use this!
+
+```get-location.ps1 -port 3389```
 
 
 ## firewall.block.ips.by.country.ps1

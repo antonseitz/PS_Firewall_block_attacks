@@ -22,8 +22,11 @@ OR
 ```firewall.block.ips.by.country.ps1 -inputfile file.txt```
 
 file.txt must contain IPs in CIDR format
+
+
 Available here:
 https://www.ip2location.com/free/visitor-blocker
+
 OR 
 
 https://www.ipdeny.com/ipblocks/

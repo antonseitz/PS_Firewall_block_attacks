@@ -19,7 +19,7 @@ gets actuall list of ips ranges from Russia and creates Windows Firewall blockin
 
 OR
 
-firewall.block.ips.by.country.ps1 -inputfile file.txt
+```firewall.block.ips.by.country.ps1 -inputfile file.txt```
 
 file.txt must contain IPs in CIDR format
 Available here:

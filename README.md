@@ -29,12 +29,10 @@ OR
 https://www.ipdeny.com/ipblocks/
 
 
-## helpfull APIS
+## Helpfull APIs
 
 1000 requests free after registration:
 https://geo.ipify.org/docs
-
-
 
 
 other: 

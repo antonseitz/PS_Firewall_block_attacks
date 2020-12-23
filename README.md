@@ -12,7 +12,7 @@ It gives you the location and coutries of source IPs of connections
 
 
 
-firewall.block.ips.by.country.ps1 -zone ru
+´´´firewall.block.ips.by.country.ps1 -zone ru´´´
 
 gets actuall list of ips ranges from Russia and creates Windows Firewall blocking rules, to deny all traffic from IPs in Russia
 

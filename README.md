@@ -1,7 +1,7 @@
 # PS_Firewall_block_whole_countries
 
 
-## get-location.ps1
+## get-ip-location.ps1
 
 
 

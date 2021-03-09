@@ -22,16 +22,14 @@ $ips+=$entry.QuellIP
 
 
 
-foreach ($id in ($ips | group | sort -Property count -Descending)) {
+foreach ($ip in ($ips | group | sort -Property count -Descending)) {
 
-#$long+=  [string]$id.count + " failed logins from IP: " + $id.Name + "\n"
+
 
 if($ip.count -gt 20){
-$name="PS_BLOCK_ATTK_" + $id.Name
-New-NetFirewallRule -DisplayName $name -Profile Any -Enabled True -Direction Inbound -LocalPort 2323 -Protocol TCP -Remoteaddress $id.Name -Action block
+$name="PS_BLOCK_ATTK_" + $ip.Name
+New-NetFirewallRule -DisplayName $name -Profile Any -Enabled True -Direction Inbound -LocalPort 2323 -Protocol TCP -Remoteaddress $ip.Name -Action block
 }
 
 }
-
-
 

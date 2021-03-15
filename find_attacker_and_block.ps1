@@ -28,8 +28,16 @@ foreach ($ip in ($ips | group | sort -Property count -Descending)) {
 
 if($ip.count -gt 20){
 $name="PS_BLOCK_ATTK_" + $ip.Name
-New-NetFirewallRule -DisplayName $name -Profile Any -Enabled True -Direction Inbound -LocalPort 2323 -Protocol TCP -Remoteaddress $ip.Name -Action block
-}
 
+
+if ( -not (Get-NetFirewallRule -displayname $name ) ){
+
+New-NetFirewallRule -DisplayName $name -Profile Any -Enabled True -Direction Inbound -LocalPort 2323 -Protocol TCP -Remoteaddress $ip.Name -Action block
+"Rule" + $name +" created!"
+}
+else {
+$name + " is already present!" 
+}
+}
 }
 

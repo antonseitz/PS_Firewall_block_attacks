@@ -21,9 +21,14 @@ select TimeGenerated, Eventid,
 
 if ($show){
 foreach ($log in $log_h  ){
-$log
+#$log
 
-}}
+}
+
+
+$log_h | select quellip,kontoname| group QuellIP, kontoname | select count,name|Sort Count -descending 
+
+}
 
 if ($block) {
 

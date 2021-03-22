@@ -1,10 +1,12 @@
 param(
 [switch]$block,
-[switch]$showonly
+[switch]$help ,
+[switch]$show,
+[int]$hours=1
 )
 
 
-$after_h=(get-date).addhours(-1)
+$after_h=(get-date).addhours($hours * (-1))
 
 
 $ips=@()
@@ -17,11 +19,11 @@ select TimeGenerated, Eventid,
 @{Name="QuellIP"; Expression={$_.Replacementstrings[19]}}
 
 
-if ($showonly){
-foreach ($log in ($log_h | group | sort -Property count -Descending)) {
+if ($show){
+foreach ($log in $log_h  ){
 $log
 
-}
+}}
 
 if ($block) {
 
@@ -51,4 +53,12 @@ $name + " is already present!"
 }
 }
 
+}
+
+
+if( ( !  $show -and ! $block ) -or $help ){
+"Usage: -show | -block | -hours=1 }"
+"-show : shown only logon failures of last x hours"
+"-block  : block ips with more than 20 logon failures of last x hours"
+"-hours=x  : parse eventlog from x hours ago to now "
 }

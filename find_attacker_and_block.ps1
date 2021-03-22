@@ -1,19 +1,29 @@
-﻿$after_h=(get-date).addhours(-1)
+param(
+[switch]$block,
+[switch]$showonly
+)
+
+
+$after_h=(get-date).addhours(-1)
 
 
 $ips=@()
 
 $log_h=Get-EventLog -LogName Security -after $after_h -InstanceId 4625 |
 select TimeGenerated, Eventid,
-#@{Name="AnmeldeTyp"; Expression={$_.Replacementstrings[10]}},
-#@{Name="Kontoname"; Expression={$_.Replacementstrings[5]}},
-#@{Name="Arbeitsstationsname"; Expression={$_.Replacementstrings[13]}},
+@{Name="AnmeldeTyp"; Expression={$_.Replacementstrings[10]}},
+@{Name="Kontoname"; Expression={$_.Replacementstrings[5]}},
+@{Name="Arbeitsstationsname"; Expression={$_.Replacementstrings[13]}},
 @{Name="QuellIP"; Expression={$_.Replacementstrings[19]}}
 
 
+if ($showonly){
+foreach ($log in ($log_h | group | sort -Property count -Descending)) {
+$log
 
+}
 
-
+if ($block) {
 
 
 foreach ($entry in $log_h){
@@ -41,3 +51,4 @@ $name + " is already present!"
 }
 }
 
+}

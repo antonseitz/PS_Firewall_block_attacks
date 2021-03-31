@@ -1,14 +1,13 @@
 # PS_Firewall_attacker_block
 
-- [x] Finish my changes
-- [ ] Push my commits to GitHub
-- [ ] Open a pull request
+- [ ] TODO: create setup.ps1 which creates a regulary task in scheduler
 
 # find_attacker_and_block.ps1
 
 searches eventlog for attacker IPs in last x hours 
 and put this IPs to an blocking firewall rule .
-TODO: create setup.ps1 which creates a regulary task in scheduler
+
+
 
 
 ## get-ip-location.ps1

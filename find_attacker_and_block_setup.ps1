@@ -72,3 +72,4 @@ Register-ScheduledTask $taskname -InputObject $D -taskpath "\" -user $user -pass
 
 $taskname + " is scheduled once a day "
 "Don't forget to  specify repeat interval!"
+"Recommended interval: 10 minutes"

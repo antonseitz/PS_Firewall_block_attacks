@@ -2,8 +2,11 @@ param(
 [switch]$block,
 [switch]$help ,
 [switch]$show,
+[int]$failedlogons=20,
 [int]$hours=1
 )
+
+
 
 
 $after_h=(get-date).addhours($hours * (-1))
@@ -43,7 +46,7 @@ foreach ($ip in ($ips | group | sort -Property count -Descending)) {
 
 
 
-if($ip.count -gt 20){
+if($ip.count -ge $failedlogons){
 $name="PS_BLOCK_ATTK_" + $ip.Name
 
 
@@ -66,4 +69,5 @@ if( ( !  $show -and ! $block ) -or $help ){
 "-show : shown only logon failures of last x hours"
 "-block  : block ips with more than 20 logon failures of last x hours"
 "-hours=x  : parse eventlog from x hours ago to now "
+"-failedlogons  : thtreshold of failed logins: if more than x fails from one ip is logged, ip will be blocked | default: 20"
 }

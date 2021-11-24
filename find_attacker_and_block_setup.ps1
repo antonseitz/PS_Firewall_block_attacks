@@ -62,6 +62,6 @@ $D = New-ScheduledTask -Action $A  -Trigger $T -Settings $S
 Register-ScheduledTask $taskname -InputObject $D -taskpath "\" -user $user -pass $pass
 
 
-$taskname + " is scheduled once a day "
-"Don't forget to  specify repeat interval!"
+$taskname + " is scheduled to run every 15 minutes now"
+
 "Recommended interval: 10 minutes"

@@ -63,6 +63,6 @@ $D = New-ScheduledTask -Action $A  -Trigger $T -Settings $S
 Register-ScheduledTask $taskname -InputObject $D -taskpath "\" -user $user -pass $pass
 
 
-$taskname + " is scheduled to run every 15 minutes now"
 
+$taskname + " is scheduled to run every 15 minutes now"
 

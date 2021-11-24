@@ -43,7 +43,7 @@ $pass=[Runtime.InteropServices.Marshal]::PtrToStringAuto(    [Runtime.InteropSer
 
 #$arg= '-noninteractive -noLogo -noprofile -command "& {c:\ms_backup\ms_backup.ps1 ' + $full_diff  + '; return $LASTEXITCODE  }"  2>&1 >> c:\ms_backup\logs\ms_backup.' + $full_diff + '.log'
 
-$arg  = " -file c:\GitHub\PS_Firewall_block_whole_countries\find_attacker_and_block.ps1 -block -port $port"
+$arg  = " -file $PSScriptRoot\find_attacker_and_block.ps1 -block -port $port"
 
 
 

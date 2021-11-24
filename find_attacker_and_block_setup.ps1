@@ -46,7 +46,7 @@ $pass=[Runtime.InteropServices.Marshal]::PtrToStringAuto(    [Runtime.InteropSer
 $arg  = " -file $PSScriptRoot\find_attacker_and_block.ps1 -block -port $port"
 
 
-$T = New-ScheduledTaskTrigger -Once -At 7am -RepetitionDuration  (New-TimeSpan -Days 1)  -RepetitionInterval  (New-TimeSpan -Minutes 30)
+$T = New-ScheduledTaskTrigger -Once -At 7am -RepetitionDuration  (New-TimeSpan -Days 1)  -RepetitionInterval  (New-TimeSpan -Minutes 15)
 #New-ScheduledTaskTrigger -Once     -At (Get-Date)     -RepetitionInterval (New-TimeSpan -Minutes 15)     -RepetitionDuration ([System.TimeSpan]::MaxValue)
 
 #$T = New-ScheduledTaskTrigger -Daily -At 7am  
@@ -62,6 +62,6 @@ $D = New-ScheduledTask -Action $A  -Trigger $T -Settings $S
 Register-ScheduledTask $taskname -InputObject $D -taskpath "\" -user $user -pass $pass
 
 
-$taskname + " is scheduled to run every 15 minutes now"
-
+$taskname + " is scheduled once a day "
+"Don't forget to  specify repeat interval!"
 "Recommended interval: 10 minutes"

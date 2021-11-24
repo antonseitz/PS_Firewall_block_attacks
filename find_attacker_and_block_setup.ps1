@@ -19,16 +19,6 @@ write "YOU HAVE NO ADMIN RIGHTS: EXITING!"
 exit 1
 }
 
-# USAGE
-
-#if (! $full_diff -or (($full_diff -ne "full") -and ($full_diff -ne "diff"))){ 
-#write-host("Usage: "  +  $MyInvocation.MyCommand.Name + " -full_diff full|diff ") #[-debug] [-dryrun] ")
-#write "-debug = a lot of output"
-
-
-#exit
-#
-#}
 
 
 
@@ -44,6 +34,7 @@ UnRegister-ScheduledTask  $taskname
 
 $user=read-host "Username"
 $pass=read-host "Password" -AsSecureString # do not show password 
+$port=read-host "Port of attacked Service. This port will be protected by FW rule" 
 
 # convert Securestring to "normal" string
 $pass=[Runtime.InteropServices.Marshal]::PtrToStringAuto(    [Runtime.InteropServices.Marshal]::SecureStringToBSTR($pass))
@@ -52,7 +43,7 @@ $pass=[Runtime.InteropServices.Marshal]::PtrToStringAuto(    [Runtime.InteropSer
 
 #$arg= '-noninteractive -noLogo -noprofile -command "& {c:\ms_backup\ms_backup.ps1 ' + $full_diff  + '; return $LASTEXITCODE  }"  2>&1 >> c:\ms_backup\logs\ms_backup.' + $full_diff + '.log'
 
-$arg  = " -file c:\GitHub\PS_Firewall_block_whole_countries\find_attacker_and_block.ps1 -block "
+$arg  = " -file c:\GitHub\PS_Firewall_block_whole_countries\find_attacker_and_block.ps1 -block -port $port"
 
 
 

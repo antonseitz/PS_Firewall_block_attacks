@@ -3,7 +3,8 @@ param(
 [switch]$help ,
 [switch]$show,
 [int]$failedlogons=20,
-[int]$hours=1
+[int]$hours=1,
+[int]$port=3389
 )
 
 
@@ -52,7 +53,7 @@ $name="PS_BLOCK_ATTK_" + $ip.Name
 
 if ( -not (Get-NetFirewallRule -displayname $name ) ){
 
-New-NetFirewallRule -DisplayName $name -Profile Any -Enabled True -Direction Inbound -LocalPort 2323 -Protocol TCP -Remoteaddress $ip.Name -Action block
+New-NetFirewallRule -DisplayName $name -Profile Any -Enabled True -Direction Inbound -LocalPort $port -Protocol TCP -Remoteaddress $ip.Name -Action block
 "Rule" + $name +" created!"
 }
 else {

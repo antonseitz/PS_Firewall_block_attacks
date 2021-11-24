@@ -46,9 +46,10 @@ $pass=[Runtime.InteropServices.Marshal]::PtrToStringAuto(    [Runtime.InteropSer
 $arg  = " -file $PSScriptRoot\find_attacker_and_block.ps1 -block -port $port"
 
 
+$T = New-ScheduledTaskTrigger -Once -At 7am -RepetitionDuration  (New-TimeSpan -Days 1)  -RepetitionInterval  (New-TimeSpan -Minutes 30)
+#New-ScheduledTaskTrigger -Once     -At (Get-Date)     -RepetitionInterval (New-TimeSpan -Minutes 15)     -RepetitionDuration ([System.TimeSpan]::MaxValue)
 
-
-$T = New-ScheduledTaskTrigger -Daily -At 7am  
+#$T = New-ScheduledTaskTrigger -Daily -At 7am  
 
 $A = New-ScheduledTaskAction -Execute "powershell.exe" -Argument $arg
 

@@ -64,4 +64,4 @@ Register-ScheduledTask $taskname -InputObject $D -taskpath "\" -user $user -pass
 
 $taskname + " is scheduled to run every 15 minutes now"
 
-"Recommended interval: 10 minutes"
+

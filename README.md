@@ -1,18 +1,19 @@
 # PS_Firewall_attacker_block
 
-- [ ] TODO: create setup.ps1 which creates a regulary task in scheduler
 
 # find_attacker_and_block.ps1
 
-searches eventlog for attacker IPs in last x hours 
-and put this IPs to an blocking firewall rule .
+Searches eventlog for attacker IPs in last x hours 
+and puts this IPs to an blocking firewall rule .
 
+
+# find_attacker_and_block_setup.ps1
+
+Adds a scheduled task to search for attackers in SecEventlog and block them via FW-Rule
 
 
 
 ## get-ip-location.ps1
-
-
 
 Script to analyse IPs of current hacking attempts
 

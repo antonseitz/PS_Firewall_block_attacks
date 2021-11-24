@@ -1,13 +1,13 @@
 # PS_Firewall_attacker_block
 
 
-# find_attacker_and_block.ps1
+## find_attacker_and_block.ps1
 
 Searches eventlog for attacker IPs in last x hours 
 and puts this IPs to an blocking firewall rule .
 
 
-# find_attacker_and_block_setup.ps1
+## find_attacker_and_block_setup.ps1
 
 Adds a scheduled task to search for attackers in SecEventlog and block them via FW-Rule
 

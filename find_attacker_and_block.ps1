@@ -48,7 +48,7 @@ foreach ($ip in ($ips | group | sort -Property count -Descending)) {
 
 
 if($ip.count -ge $failedlogons){
-$name="PS_BLOCK_ATTK_" + $ip.Name
+$name="PS_BLOCK_ATTK_" + $ip.Name + "_" + $port
 
 
 if ( -not (Get-NetFirewallRule -displayname $name ) ){
